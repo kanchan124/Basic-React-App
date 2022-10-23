@@ -49,9 +49,12 @@ export default function Navbar(props) {
   );
 }
 
-Navbar.prototype = { title: PropTypes.string.isRequired, aboutText: PropTypes.string };
+Navbar.prototype = {
+  title: PropTypes.string.isRequired,
+  aboutText: PropTypes.string,
+};
 
-Navbar.defaultProps={
-    title:"Set tile here",
-    aboutText:"About text here"
-}
+Navbar.defaultProps = {
+  title: "Set tile here",
+  aboutText: "About text here",
+};
