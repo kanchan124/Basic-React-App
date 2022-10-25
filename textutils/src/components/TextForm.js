@@ -23,6 +23,12 @@ export default function TextForm(props) {
     navigator.clipboard.writeText(text.value)
   }
 
+  const handleExtraSpace=()=>{
+    let newText=  text.split(/[ ]+/);
+    setText(newText.join(" "))
+
+  }
+
   //state in react
   const [text, setText] = useState("");
   /*   setText("updated text"); */
@@ -52,6 +58,9 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-primary mx-3" onClick={handleCopy}>
           Copy
+        </button>
+        <button className="btn btn-primary mx-3" onClick={handleExtraSpace}>
+          Remove extra spaces
         </button>
       </div>
       <div className="container my-3">
