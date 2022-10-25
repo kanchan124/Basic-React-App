@@ -13,6 +13,16 @@ export default function TextForm(props) {
     setText(text.toLocaleLowerCase());
   };
 
+  const handleClearClick = (event) => {
+    setText("");
+  };
+
+  const handleCopy=()=>{
+    var text=document.getElementById("myform");
+    text.select();
+    navigator.clipboard.writeText(text.value)
+  }
+
   //state in react
   const [text, setText] = useState("");
   /*   setText("updated text"); */
@@ -34,16 +44,22 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-3" onClick={handleUppercaseClick}>
           Convert to uppercase
         </button>
-        <button className="btn btn-primary" onClick={handleLowercaseClick}>
+        <button className="btn btn-primary mx-3" onClick={handleLowercaseClick}>
           Convert to lowercase
+        </button>
+        <button className="btn btn-primary mx-3" onClick={handleClearClick}>
+          Clear
+        </button>
+        <button className="btn btn-primary mx-3" onClick={handleCopy}>
+          Copy
         </button>
       </div>
       <div className="container my-3">
-        <h2>    
-        Your Text Summery
-        </h2>
-        <p>{text.split(" ").length  } words {text.length} character</p>
-        <p>{0.008 *text.split(" ").length} Minutes to read</p>
+        <h2>Your Text Summery</h2>
+        <p>
+          {text.split(" ").length} words {text.length} character
+        </p>
+        <p>{0.008 * text.split(" ").length} Minutes to read</p>
         <h2>Preview</h2>
         <p>{text}</p>
       </div>
